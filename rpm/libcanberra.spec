@@ -50,7 +50,7 @@ Development Files for libcanberra Client Development
 %autogen 
 %configure --disable-static --enable-pulse --disable-alsa --enable-null --disable-gstreamer --disable-oss --disable-tdb --disable-gtk --disable-gtk3
 
-make %{?jobs:-j%jobs}
+make %{?_smp_mflags}
 
 %install
 rm -rf %{buildroot}
@@ -59,17 +59,12 @@ rm -rf %{buildroot}/%{_datadir}/vala
 
 %files
 %defattr(-,root,root)
-%doc LGPL
-%{_libdir}/libcanberra.so.*
-%dir %{_libdir}/libcanberra-%{version}
-%{_libdir}/libcanberra-%{version}/libcanberra-pulse.so
-%{_libdir}/libcanberra-%{version}/libcanberra-null.so
-%{_libdir}/libcanberra-%{version}/libcanberra-multi.so
-#%{_docdir}/libcanberra/README
+%license LGPL
+%{_libdir}/%{name}.so.*
+%{_libdir}/%{name}-*/
 
 %files devel
 %defattr(-,root,root)
 %{_includedir}/canberra.h
-%{_libdir}/libcanberra.so
-%{_libdir}/pkgconfig/libcanberra.pc
-#%{_datadir}/gtk-doc/html/libcanberra/
+%{_libdir}/%{name}.so
+%{_libdir}/pkgconfig/%{name}.pc
