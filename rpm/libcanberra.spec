@@ -2,7 +2,6 @@ Name:    libcanberra
 Version: 0.30
 Release: 1
 Summary: Portable Sound Event Library
-Group:   System Environment/Libraries
 Source0: %{name}-%{version}.tar.xz
 Patch0:  fix-automake.patch
 
@@ -28,7 +27,6 @@ A small and lightweight implementation of the XDG Sound Theme Specification
 
 %package  devel
 Summary:  Development Files for libcanberra Client Development
-Group:    Development/Libraries
 Requires: %{name} = %{version}-%{release}
 
 %description devel
