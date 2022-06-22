@@ -3,11 +3,11 @@ Version: 0.30
 Release: 1
 Summary: Portable Sound Event Library
 Group:   System Environment/Libraries
-Source0: http://0pointer.de/lennart/projects/libcanberra/libcanberra-%{version}.tar.xz
+Source0: %{name}-%{version}.tar.xz
 Patch0:  fix-automake.patch
 
 License: LGPLv2+
-Url:     http://git.0pointer.de/?p=libcanberra.git;a=summary
+Url:     https://github.com/sailfishos/libcanberra
 BuildRequires: pkgconfig(alsa)
 BuildRequires: pkgconfig(vorbis)
 BuildRequires: libtool-ltdl-devel
