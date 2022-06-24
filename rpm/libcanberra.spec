@@ -2,12 +2,11 @@ Name:    libcanberra
 Version: 0.30
 Release: 1
 Summary: Portable Sound Event Library
-Group:   System Environment/Libraries
-Source0: http://0pointer.de/lennart/projects/libcanberra/libcanberra-%{version}.tar.xz
+Source0: %{name}-%{version}.tar.xz
 Patch0:  fix-automake.patch
 
 License: LGPLv2+
-Url:     http://git.0pointer.de/?p=libcanberra.git;a=summary
+Url:     https://github.com/sailfishos/libcanberra
 BuildRequires: pkgconfig(alsa)
 BuildRequires: pkgconfig(vorbis)
 BuildRequires: libtool-ltdl-devel
@@ -28,7 +27,6 @@ A small and lightweight implementation of the XDG Sound Theme Specification
 
 %package  devel
 Summary:  Development Files for libcanberra Client Development
-Group:    Development/Libraries
 Requires: %{name} = %{version}-%{release}
 
 %description devel
