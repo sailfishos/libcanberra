@@ -32,37 +32,31 @@ Requires: %{name} = %{version}-%{release}
 %description devel
 Development Files for libcanberra Client Development
 
-%post
-/sbin/ldconfig
+%post -p /sbin/ldconfig
 
 %postun
 /sbin/ldconfig
 /bin/systemctl daemon-reload >/dev/null 2>&1 || :
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}
-
-%patch0 -p1
+%autosetup -p1 -n %{name}-%{version}/%{name}
 
 %build
 %autogen 
 %configure --disable-static --enable-pulse --disable-alsa --enable-null --disable-gstreamer --disable-oss --disable-tdb --disable-gtk --disable-gtk3
 
-make %{?_smp_mflags}
+%make_build
 
 %install
-rm -rf %{buildroot}
 %make_install
 rm -rf %{buildroot}/%{_datadir}/vala
 
 %files
-%defattr(-,root,root)
 %license LGPL
 %{_libdir}/%{name}.so.*
 %{_libdir}/%{name}-*/
 
 %files devel
-%defattr(-,root,root)
 %{_includedir}/canberra.h
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
